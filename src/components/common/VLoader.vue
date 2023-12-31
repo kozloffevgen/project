@@ -1,8 +1,8 @@
 <template>
-  <div class="V-loader">
-    <div class="V-loader__inner V-loader__inner_first"></div>
-    <div class="V-loader__inner V-loader__inner_second"></div>
-    <div class="V-loader__inner V-loader__inner_third"></div>
+  <div class="v-loader">
+    <div class="v-loader__inner v-loader__inner_first"></div>
+    <div class="v-loader__inner v-loader__inner_second"></div>
+    <div class="v-loader__inner v-loader__inner_third"></div>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
 </script>
 
 <style lang="less" scoped>
-.V-loader {
+.v-loader {
   position: absolute;
   top: calc(50% - 32px);
   left: calc(50% - 32px);

@@ -4,6 +4,7 @@
   */
   --main-color: #1a1818;
   --color-text-default: #fff;
+  --color-text-placeholder: #c1b7b7;
 
   /*
     @ border
@@ -45,4 +46,8 @@ h1 {
 
 h2 {
   font-size: 24px;
+}
+
+body{
+  overflow-y: hidden;
 }
