@@ -75,7 +75,7 @@ export default {
 .positions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   max-height: 700px;
   overflow-y: auto;
   gap: 12px 1%;
