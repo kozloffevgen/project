@@ -9,9 +9,14 @@
       @change="$emit('change', { key: item, value: $event })"
     />
   </div>
+  <div class="filters-btns">
+    <VButton value="Apply" @click="$emit('apply')" />
+    <VButton value="Reset" @click="$emit('reset')" />
+  </div>
 </template>
 
 <script>
+import VButton from './common/VButton.vue';
 import VSelect from './common/VSelect.vue';
 
 export default {
@@ -22,6 +27,7 @@ export default {
     'Category',
   ],
   components: {
+    VButton,
     VSelect,
   },
   props: {
@@ -40,5 +46,12 @@ export default {
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+.filters-btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0 20px;
 }
 </style>

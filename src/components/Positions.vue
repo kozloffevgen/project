@@ -51,6 +51,10 @@ export default {
       name: 'Link',
       template: 'a',
     },
+    {
+      name: 'Category',
+      template: 'span',
+    },
   ],
   props: {
     positions: { type: Object, default: {} }
