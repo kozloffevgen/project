@@ -1,16 +1,16 @@
 <template>
   <div class="positions-and-filters">
-    <Filters :items="data.entries" @change="filterItems" />
+    <Filters :items="entries" />
+    
     <Positions 
-      :positions="visiblePositins"
-      :isShow="isShow"
-      @appear="addChunks"
+      :positions="visiblePositions"
+      @appear="addNextChunk"
     />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import Filters from './Filters.vue';
 import Positions from './Positions.vue';
 
@@ -20,29 +20,12 @@ export default {
     Filters,
     Positions,
   },
-  data() {
-    return {
-      itemsChunk: [],
-      visiblePositins: [],
-      nextChunkIndex: 0,
-    };
-  },
   computed: {
-    ...mapState(['data', 'positionsChunk']),
-    isShow() {
-      return this.nextChunkIndex < this.positionsChunk.length;
-    },
+    ...mapState(['entries', 'visiblePositions']),
   },
   methods: {
-    addChunks() {
-      this.visiblePositins.push(...this.positionsChunk[this.nextChunkIndex]);
-      this.nextChunkIndex += 1;
-    },
+    ...mapMutations(['addNextChunk']),
   },
-  created() {    
-    [this.visiblePositins] = this.positionsChunk;
-    this.nextChunkIndex += 1;
-  }
 };
 </script>
 

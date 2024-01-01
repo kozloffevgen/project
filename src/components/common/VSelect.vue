@@ -13,7 +13,7 @@
         v-if="activeItem"
         class="v-select__svg"
         name="close"
-        @click="resetActiveItem"
+        @click="removeActiveItem"
       />
 
       <VSvg
@@ -81,8 +81,10 @@ export default {
 
       this.$emit('change', this.activeItem);
     },
-    resetActiveItem() {
+    removeActiveItem() {
       this.activeItem = null;
+
+      this.$emit('removeItem')
     }
   },
 };

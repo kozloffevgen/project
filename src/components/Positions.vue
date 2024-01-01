@@ -5,8 +5,6 @@
       :key="key"
       class="positions__item"
     >
-      <span class="positions__item-name">Id: {{ key + 1 }}</span>
-
       <component
         v-for="item in $options.columns"
         :key="item.name"
@@ -17,15 +15,15 @@
       >
         <span class="positions__item-name">{{ item.name }}</span>
         <span v-if="item.name !== 'Link'" class="positions__item-value">: {{ position[item.name] }}</span>
-        <span v-if="!position[item.name]" class="positions__item-value_empty">: None</span>
       </component> 
     </div>
 
-    <VIntersectionObserver v-if="isShow" @appear="$emit('appear')" />   
+    <VIntersectionObserver v-if="isShowObserver" @appear="$emit('appear')" />   
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import VIntersectionObserver from './common/VIntersectionObserver.vue';
 
 export default {
@@ -66,6 +64,9 @@ export default {
   props: {
     positions: { type: Object, default: {} },
     isShow: { type: Boolean, default: false },
+  },
+  computed: {
+    ...mapGetters(['isShowObserver']),
   },
 };
 </script>

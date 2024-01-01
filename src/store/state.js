@@ -1,6 +1,11 @@
 export default {
   isLoading: true,
-  data: {},
+  isSHowObserver: false,
+  nextChunkIndex: 1,
+  count: null,
+  entries: [],
   filters: [],
   positionsChunk: [],
+  visiblePositions: [],
+  filteredVisiblePositions: [],
 };
