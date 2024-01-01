@@ -1,7 +1,8 @@
 <template>
   <div class="filters">
     <VSelect 
-      v-for="(item, key) in $options.config" 
+      ref="select"
+      v-for="(item, key) in $options.config"
       :key="key"
       :palceholder="item"
       :items="setCurrSelectItems(item)"
@@ -11,7 +12,7 @@
   </div>
   <div class="filters-btns">
     <VButton value="Apply" @click="$emit('apply')" />
-    <VButton value="Reset" @click="$emit('reset')" />
+    <VButton value="Reset" @click="removeFilters" />
   </div>
 </template>
 
@@ -37,6 +38,13 @@ export default {
     setCurrSelectItems(name) {
       return [...new Set(this.items.map((item) => item[name]))];
     },
+    removeFilters() {
+      this.$refs.select.forEach((select) => {
+        select.resetActiveItem();
+      });
+
+      this.$emit('reset');
+    }
   },
 };
 </script>

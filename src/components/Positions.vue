@@ -18,14 +18,21 @@
         <span class="positions__item-name">{{ item.name }}</span>
         <span v-if="item.name !== 'Link'" class="positions__item-value">: {{ position[item.name] }}</span>
         <span v-if="!position[item.name]" class="positions__item-value_empty">: None</span>
-    </component> 
-      </div>
+      </component> 
+    </div>
+
+    <VIntersectionObserver v-if="isShow" @appear="$emit('appear')" />   
   </div>
 </template>
 
 <script>
+import VIntersectionObserver from './common/VIntersectionObserver.vue';
+
 export default {
   name: 'Positions',
+  components: {
+    VIntersectionObserver,
+  },
   columns: [
     {
       name: 'API',
@@ -57,7 +64,8 @@ export default {
     },
   ],
   props: {
-    positions: { type: Object, default: {} }
+    positions: { type: Object, default: {} },
+    isShow: { type: Boolean, default: false },
   },
 };
 </script>
@@ -67,6 +75,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-height: 700px;
+  overflow-y: auto;
   gap: 12px 1%;
   margin: 20px 0;
 

@@ -10,6 +10,14 @@
       </span>
 
       <VSvg
+        v-if="activeItem"
+        class="v-select__svg"
+        name="close"
+        @click="resetActiveItem"
+      />
+
+      <VSvg
+        v-else
         class="v-select__svg"
         :class="{'v-select__svg_open': isOpenSelectList}"
         name="arrow-down" 
@@ -73,6 +81,9 @@ export default {
 
       this.$emit('change', this.activeItem);
     },
+    resetActiveItem() {
+      this.activeItem = null;
+    }
   },
 };
 </script>
@@ -105,6 +116,9 @@ export default {
   }
 
   &__list-options {
+    position: absolute;
+    width: 100%;
+    background: var(--color-bg-default);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     max-height: 500px;

@@ -1,27 +1,24 @@
 <template>
   <div class="positions-and-filters">
     <Filters :items="data.entries" @change="filterItems" />
-    <Positions :positions="visiblePositins" />
-
-    <VIntersectionObserver v-if="isShow" @appear="addChunks" />   
+    <Positions 
+      :positions="visiblePositins"
+      :isShow="isShow"
+      @appear="addChunks"
+    />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import chunk from 'lodash-es/chunk'
-import VIntersectionObserver from './common/VIntersectionObserver.vue';
 import Filters from './Filters.vue';
 import Positions from './Positions.vue';
-
-const MAX_POSITIONS_CHUNK = 24;
 
 export default {
   name: 'PositionsAndFilters',
   components: {
     Filters,
     Positions,
-    VIntersectionObserver,
   },
   data() {
     return {
@@ -31,20 +28,19 @@ export default {
     };
   },
   computed: {
-    ...mapState(['data']),
+    ...mapState(['data', 'positionsChunk']),
     isShow() {
-      return this.nextChunkIndex < this.itemsChunk.length;
+      return this.nextChunkIndex < this.positionsChunk.length;
     },
   },
   methods: {
     addChunks() {
-      this.visiblePositins.push(...this.itemsChunk[this.nextChunkIndex]);
+      this.visiblePositins.push(...this.positionsChunk[this.nextChunkIndex]);
       this.nextChunkIndex += 1;
     },
   },
   created() {    
-    this.itemsChunk = chunk(this.data.entries, MAX_POSITIONS_CHUNK);
-    [this.visiblePositins] = this.itemsChunk;
+    [this.visiblePositins] = this.positionsChunk;
     this.nextChunkIndex += 1;
   }
 };
@@ -54,8 +50,6 @@ export default {
 .positions-and-filters {
   position: relative;
   max-width: 1100px;
-  max-height: 700px;
-  overflow-y: auto;
   margin: 20px auto;
 }
 </style>
