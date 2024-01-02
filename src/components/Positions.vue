@@ -81,7 +81,7 @@ export default {
   justify-content: start;
   max-height: 700px;
   overflow-y: auto;
-  gap: 12px 1%;
+  gap: 12px 2%;
   margin: 20px 0;
 
   &__item {
