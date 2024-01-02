@@ -1,10 +1,10 @@
 import Api from '@/api';
 
 export default {
-  async getApis({ commit }) {
+  async getData({ commit }) {
     commit('setStatus', true);
 
-    const result = await Api.getInstance().getApis();
+    const result = await Api.getInstance().getData();
 
     if (result.name === 'Error') {
       console.log(result);
@@ -13,5 +13,5 @@ export default {
     }
 
     commit('setStatus', false);
-  }
+  },
 };

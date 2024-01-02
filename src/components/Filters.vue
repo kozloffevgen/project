@@ -11,6 +11,7 @@
       @removeItem="resetFilters({ key: item })"
     />
   </div>
+
   <div class="filters-btns">
     <VButton value="Apply" @click="setFilteredItems" />
     <VButton value="Reset" @click="removeFilters" />
@@ -47,7 +48,7 @@ export default {
       });
 
       this.resetFilters();
-    }
+    },
   },
 };
 </script>

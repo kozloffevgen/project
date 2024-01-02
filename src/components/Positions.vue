@@ -18,12 +18,12 @@
       </component> 
     </div>
 
-    <VIntersectionObserver v-if="isShowObserver" @appear="$emit('appear')" />   
+    <VIntersectionObserver v-if="isShowObserver" @appear="addNextChunk" />   
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 import VIntersectionObserver from './common/VIntersectionObserver.vue';
 
 export default {
@@ -67,6 +67,9 @@ export default {
   },
   computed: {
     ...mapGetters(['isShowObserver']),
+  },
+    methods: {
+    ...mapMutations(['addNextChunk']),
   },
 };
 </script>

@@ -19,7 +19,7 @@ export default class Api {
     return this.instance;
   }
 
-  getApis() {
+  getData() {
     return this.manager.get();
   }
 }

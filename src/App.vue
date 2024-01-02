@@ -4,30 +4,30 @@
   </h1>
 
   <VLoader v-if="isLoading" />
-  <PositionsAndFilter v-else />
+  <PositionsAndFilters v-else />
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
 import VLoader from './components/common/VLoader.vue';
-import PositionsAndFilter from './components/PositionsAndFilters.vue';
+import PositionsAndFilters from './components/PositionsAndFilters.vue';
 
 export default {
   name: 'App',
   components: {
     VLoader,
-    PositionsAndFilter,
+    PositionsAndFilters,
   },
   computed: {
     ...mapState(['isLoading']),
   },
   methods: {
-    ...mapActions(['getApis'])
+    ...mapActions(['getData']),
   },
   created() {
-    this.getApis();
-  }
-}
+    this.getData();
+  },
+};
 </script>
 
 <style lang="less" scoped>

@@ -2,15 +2,15 @@
   <div class="positions-and-filters">
     <Filters :items="entries" />
     
-    <Positions 
-      :positions="visiblePositions"
-      @appear="addNextChunk"
-    />
+    <span class="positions-count">
+      Positions count: {{ visiblePositionsCount }}
+    </span>
+    <Positions :positions="visiblePositions" />
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState } from 'vuex';
 import Filters from './Filters.vue';
 import Positions from './Positions.vue';
 
@@ -21,10 +21,7 @@ export default {
     Positions,
   },
   computed: {
-    ...mapState(['entries', 'visiblePositions']),
-  },
-  methods: {
-    ...mapMutations(['addNextChunk']),
+    ...mapState(['visiblePositionsCount', 'entries', 'visiblePositions']),
   },
 };
 </script>

@@ -1,4 +1,4 @@
-import chunk from 'lodash-es/chunk'
+import chunk from 'lodash-es/chunk';
 
 const MAX_POSITIONS_CHUNK = 24;
 
@@ -13,6 +13,7 @@ export default {
     this.commit('setVisiblePositions');
   },  
   setVisiblePositions(state) {
+    state.visiblePositionsCount = state.count;
     state.positionsChunk = chunk(state.entries, MAX_POSITIONS_CHUNK);
     [state.visiblePositions]  = state.positionsChunk;
   },
@@ -28,7 +29,6 @@ export default {
 
       return;
     }
-
 
     state.filters.push({ [key]: value });
   },
@@ -54,6 +54,7 @@ export default {
       return acc
     }, []);
     
+    state.visiblePositionsCount = filteredPositions.length;
     state.nextChunkIndex = 1;
     state.positionsChunk = chunk(filteredPositions, MAX_POSITIONS_CHUNK);
     [state.visiblePositions] = state.positionsChunk;

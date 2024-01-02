@@ -3,6 +3,7 @@ export default {
   isSHowObserver: false,
   nextChunkIndex: 1,
   count: null,
+  visiblePositionsCount: null,
   entries: [],
   filters: [],
   positionsChunk: [],

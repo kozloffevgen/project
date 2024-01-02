@@ -4,7 +4,6 @@
     :type="btnType"
   >
     {{ value }}
-    <slot name="button-extra" />
   </button>
 </template>
 
