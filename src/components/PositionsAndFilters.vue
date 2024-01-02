@@ -2,9 +2,11 @@
   <div class="positions-and-filters">
     <Filters :items="entries" />
     
-    <span class="positions-count">
-      Positions count: {{ visiblePositionsCount }}
-    </span>
+    <div class="positions-and-filters__count-wrap">
+      <span>Positions count: {{ visiblePositionsCount }}</span>
+      <span>Render position count: {{ renderPositionsCount }} </span>
+    </div>
+
     <Positions :positions="visiblePositions" />
   </div>
 </template>
@@ -21,7 +23,12 @@ export default {
     Positions,
   },
   computed: {
-    ...mapState(['visiblePositionsCount', 'entries', 'visiblePositions']),
+    ...mapState([
+      'visiblePositionsCount',
+      'renderPositionsCount',
+      'entries',
+      'visiblePositions',
+    ]),
   },
 };
 </script>
@@ -31,5 +38,11 @@ export default {
   position: relative;
   max-width: 1100px;
   margin: 20px auto;
+
+  &__count-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 </style>

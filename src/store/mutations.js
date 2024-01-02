@@ -14,11 +14,13 @@ export default {
   },  
   setVisiblePositions(state) {
     state.visiblePositionsCount = state.count;
+    state.renderPositionsCount = MAX_POSITIONS_CHUNK;
     state.positionsChunk = chunk(state.entries, MAX_POSITIONS_CHUNK);
     [state.visiblePositions]  = state.positionsChunk;
   },
   addNextChunk(state) {
     state.visiblePositions.push(...state.positionsChunk[state.nextChunkIndex]);
+    state.renderPositionsCount = state.visiblePositions.length;
     state.nextChunkIndex += 1;
   },
   setFilters(state, { key, value }) {
@@ -58,6 +60,7 @@ export default {
     state.nextChunkIndex = 1;
     state.positionsChunk = chunk(filteredPositions, MAX_POSITIONS_CHUNK);
     [state.visiblePositions] = state.positionsChunk;
+    state.renderPositionsCount = state.visiblePositions.length;
   },
   resetFilters(state, item) {
     state.nextChunkIndex = 1;

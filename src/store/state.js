@@ -4,6 +4,7 @@ export default {
   nextChunkIndex: 1,
   count: null,
   visiblePositionsCount: null,
+  renderPositionsCount: null,
   entries: [],
   filters: [],
   positionsChunk: [],

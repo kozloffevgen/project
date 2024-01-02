@@ -79,7 +79,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  max-height: 700px;
+  height: 72vh;
   overflow-y: auto;
   gap: 12px 2%;
   margin: 20px 0;
