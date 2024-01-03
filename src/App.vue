@@ -3,12 +3,11 @@
     Free Api List
   </h1>
 
-  <VLoader v-if="isLoading" />
+  <VLoader v-if="$store.state.isLoading" />
   <PositionsAndFilters v-else />
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
 import VLoader from './components/common/VLoader.vue';
 import PositionsAndFilters from './components/PositionsAndFilters.vue';
 
@@ -18,14 +17,8 @@ export default {
     VLoader,
     PositionsAndFilters,
   },
-  computed: {
-    ...mapState(['isLoading']),
-  },
-  methods: {
-    ...mapActions(['getData']),
-  },
   created() {
-    this.getData();
+    this.$store.dispatch('getData');
   },
 };
 </script>

@@ -1,18 +1,17 @@
 <template>
   <div class="positions-and-filters">
-    <Filters :items="entries" />
+    <Filters :items="$store.state.entries" />
     
     <div class="positions-and-filters__count-wrap">
-      <span>Positions count: {{ visiblePositionsCount }}</span>
-      <span>Render position count: {{ renderPositionsCount }} </span>
+      <span>Positions count: {{ $store.state.visiblePositionsCount }}</span>
+      <span>Render position count: {{ $store.state.renderPositionsCount }} </span>
     </div>
 
-    <Positions :positions="visiblePositions" />
+    <Positions />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import Filters from './Filters.vue';
 import Positions from './Positions.vue';
 
@@ -21,14 +20,6 @@ export default {
   components: {
     Filters,
     Positions,
-  },
-  computed: {
-    ...mapState([
-      'visiblePositionsCount',
-      'renderPositionsCount',
-      'entries',
-      'visiblePositions',
-    ]),
   },
 };
 </script>

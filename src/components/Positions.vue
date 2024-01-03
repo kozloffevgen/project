@@ -1,8 +1,8 @@
 <template>
   <div class="positions">
     <div
-      v-for="(position, key) in positions"
-      :key="key"
+      v-for="position in $store.state.visiblePositions"
+      :key="position.API"
       class="positions__item"
     >
       <component
@@ -18,12 +18,14 @@
       </component> 
     </div>
 
-    <VIntersectionObserver v-if="isShowObserver" @appear="addNextChunk" />   
+    <VIntersectionObserver 
+      v-if="$store.getters.isShowObserver"
+      @appear="$store.commit('addNextChunk')"
+    />   
   </div>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex';
 import VIntersectionObserver from './common/VIntersectionObserver.vue';
 
 export default {
@@ -61,16 +63,6 @@ export default {
       template: 'span',
     },
   ],
-  props: {
-    positions: { type: Object, default: {} },
-    isShow: { type: Boolean, default: false },
-  },
-  computed: {
-    ...mapGetters(['isShowObserver']),
-  },
-    methods: {
-    ...mapMutations(['addNextChunk']),
-  },
 };
 </script>
 
@@ -79,7 +71,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  height: 72vh;
+  max-height: 72vh;
   overflow-y: auto;
   gap: 12px 2%;
   margin: 20px 0;

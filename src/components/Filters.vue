@@ -7,19 +7,18 @@
       :palceholder="item"
       :items="setCurrSelectItems(item)"
       size="bg"
-      @change="setFilters({ key: item, value: $event })"
-      @removeItem="resetFilters({ key: item })"
+      @change="$store.commit('setFilters', ({ key: item, value: $event }))"
+      @removeItem="$store.commit('resetFilters', ({ key: item }))"
     />
   </div>
 
   <div class="filters-btns">
-    <VButton value="Apply" @click="setFilteredItems" />
+    <VButton value="Apply" @click="$store.commit('setFilteredItems')" />
     <VButton value="Reset" @click="removeFilters" />
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
 import VButton from './common/VButton.vue';
 import VSelect from './common/VSelect.vue';
 
@@ -38,7 +37,6 @@ export default {
     items: { type: Array },
   },
   methods: {
-    ...mapMutations(['setFilters', 'resetFilters', 'setFilteredItems']),
     setCurrSelectItems(name) {
       return [...new Set(this.items.map((item) => item[name]))];
     },
@@ -47,7 +45,7 @@ export default {
         select.activeItem = null;
       });
 
-      this.resetFilters();
+      this.$store.commit('resetFilters');
     },
   },
 };
