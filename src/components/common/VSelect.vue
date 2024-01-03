@@ -13,7 +13,7 @@
         v-if="activeItem"
         class="v-select__svg"
         name="close"
-        @click="removeActiveItem"
+        @click.stop="removeActiveItem"
       />
 
       <VSvg
