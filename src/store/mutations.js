@@ -10,8 +10,16 @@ export default {
     state.count = count;
     state.entries = entries;
 
+    this.commit('setEntriesId');
     this.commit('setVisiblePositions');
-  },  
+  },
+  setEntriesId(state) {
+    let id = 0;
+    state.entries.forEach((item) => {
+      item.id = id;
+      id += 1; 
+    });
+  },
   setVisiblePositions(state) {
     state.visiblePositionsCount = state.count;
     state.renderPositionsCount = MAX_POSITIONS_CHUNK;

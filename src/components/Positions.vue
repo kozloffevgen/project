@@ -2,7 +2,7 @@
   <div class="positions">
     <div
       v-for="position in $store.state.visiblePositions"
-      :key="position.API"
+      :key="position.id"
       class="positions__item"
     >
       <component
