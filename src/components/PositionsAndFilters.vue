@@ -4,7 +4,7 @@
     
     <div class="positions-and-filters__count-wrap">
       <span>Positions count: {{ $store.state.visiblePositionsCount }}</span>
-      <span>Render position count: {{ $store.state.renderPositionsCount }} </span>
+      <span>Rendered position count: {{ $store.state.renderPositionsCount }} </span>
     </div>
 
     <Positions />
