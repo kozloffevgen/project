@@ -19,6 +19,6 @@ describe('VButton.vue', () => {
     const wrapper = shallowMount(VButton);
     wrapper.find('.v-button').trigger('click')
 
-    expect(wrapper.emitted()).toHaveProperty('btnClick');
+    expect(wrapper.emitted()).toHaveProperty('btn-click');
   })
 })

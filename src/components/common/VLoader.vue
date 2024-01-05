@@ -1,8 +1,8 @@
 <template>
   <div class="v-loader">
-    <div class="v-loader__inner v-loader__inner_first"></div>
-    <div class="v-loader__inner v-loader__inner_second"></div>
-    <div class="v-loader__inner v-loader__inner_third"></div>
+    <div class="v-loader__inner v-loader__inner_first" />
+    <div class="v-loader__inner v-loader__inner_second" />
+    <div class="v-loader__inner v-loader__inner_third" />
   </div>
 </template>
 

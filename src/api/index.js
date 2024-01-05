@@ -1,10 +1,6 @@
 import ApiManager from "@/common/js/ApiManager";
 
-export default class Api {
-  manager;
-
-  static instance;
-  
+export default class Api {  
   constructor() {
     if (!this.manager) {
       this.manager = new ApiManager()

@@ -1,22 +1,28 @@
 <template>
   <div class="v-select__wrap">
-    <div :class="classes" @click="selectHandler">
+    <div
+      :class="classes"
+      @click="selectHandler"
+    >
       <div class="v-select__placeholder">
         {{ palceholder }}
       </div>
 
-      <span v-if="activeItem" class="v-select__selected-item">
+      <span
+        v-if="activeItem"
+        class="v-select__selected-item"
+      >
         {{ activeItem }}
       </span>
 
-      <VSvg
+      <v-svg
         v-if="activeItem"
         class="v-select__svg"
         name="close"
         @click.stop="removeActiveItem"
       />
 
-      <VSvg
+      <v-svg
         v-else
         class="v-select__svg"
         :class="{'v-select__svg_open': isOpenSelectList}"
@@ -24,7 +30,10 @@
       />
     </div>
 
-    <div v-if="isOpenSelectList" class="v-select__list-options">
+    <div
+      v-if="isOpenSelectList"
+      class="v-select__list-options"
+    >
       <div
         v-for="(item, key) in items"
         :key="key"
@@ -51,9 +60,10 @@ export default {
       default: 'sm',
       validator: (val) => ['sm', 'md', 'bg'].includes(val),
     },
-    palceholder: { type: String },
-    items: { type: Array },
+    palceholder: { type: String , default: ''},
+    items: { type: Array, default: () => [] },
   },
+  emits: ['change', 'remove-item'],
   data() {
     return {
       activeItem: null,
@@ -84,7 +94,7 @@ export default {
     removeActiveItem() {
       this.activeItem = null;
 
-      this.$emit('removeItem')
+      this.$emit('remove-item')
     }
   },
 };

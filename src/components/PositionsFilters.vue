@@ -1,20 +1,26 @@
 <template>
   <div class="filters">
-    <VSelect 
-      ref="select"
+    <v-select 
       v-for="(item, key) in $options.config"
+      ref="select"
       :key="key"
       :palceholder="item"
       :items="setCurrSelectItems(item)"
       size="bg"
       @change="$store.commit('setFilters', ({ key: item, value: $event }))"
-      @removeItem="$store.commit('resetFilters', ({ key: item }))"
+      @remove-item="$store.commit('resetFilters', ({ key: item }))"
     />
   </div>
 
   <div class="filters-btns">
-    <VButton value="Apply" @click="$store.commit('setFilteredItems')" />
-    <VButton value="Reset" @click="removeFilters" />
+    <v-button
+      value="Apply"
+      @click="$store.commit('setFilteredItems')"
+    />
+    <v-button
+      value="Reset"
+      @click="removeFilters"
+    />
   </div>
 </template>
 
@@ -23,7 +29,7 @@ import VButton from './common/VButton.vue';
 import VSelect from './common/VSelect.vue';
 
 export default {
-  name: 'Filters',
+  name: 'PositionsFilters',
   config: [
     'HTTPS',
     'Cors',
@@ -34,7 +40,7 @@ export default {
     VSelect,
   },
   props: {
-    items: { type: Array },
+    items: { type: Array, default: () => [] },
   },
   methods: {
     setCurrSelectItems(name) {
