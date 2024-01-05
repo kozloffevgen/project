@@ -68,7 +68,7 @@ export default {
     state.nextChunkIndex = 1;
     state.positionsChunk = chunk(filteredPositions, MAX_POSITIONS_CHUNK);
     [state.visiblePositions] = state.positionsChunk;
-    state.renderPositionsCount = state.visiblePositions.length;
+    state.renderPositionsCount = state.visiblePositions ?  state.visiblePositions.length : 0;
   },
   resetFilters(state, item) {
     state.nextChunkIndex = 1;
