@@ -71,6 +71,8 @@ export default {
     state.renderPositionsCount = state.visiblePositions ?  state.visiblePositions.length : 0;
   },
   resetFilters(state, item) {
+    if (!state.filters.length) return;
+
     state.nextChunkIndex = 1;
 
     if (item) {
