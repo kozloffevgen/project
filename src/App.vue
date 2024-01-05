@@ -3,8 +3,8 @@
     Free Api List
   </h1>
 
-  <VLoader v-if="$store.state.isLoading" />
-  <PositionsAndFilters v-else />
+  <v-loader v-if="$store.state.isLoading" />
+  <positions-and-filters v-else />
 </template>
 
 <script>

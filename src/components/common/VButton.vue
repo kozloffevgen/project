@@ -2,7 +2,7 @@
   <button
     class="v-button"
     :type="btnType"
-    @click="$emit('btnClick', $event)"
+    @click="$emit('btn-click', $event)"
   >
     {{ value }}
   </button>
@@ -22,6 +22,7 @@ export default {
       default: null,
     },
   },
+  emits: ['btn-click'],
 };
 </script>
 

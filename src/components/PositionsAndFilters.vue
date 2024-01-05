@@ -1,25 +1,25 @@
 <template>
   <div class="positions-and-filters">
-    <Filters :items="$store.state.entries" />
+    <positions-filters :items="$store.state.entries" />
     
     <div class="positions-and-filters__count-wrap">
       <span>Positions count: {{ $store.state.visiblePositionsCount }}</span>
       <span>Rendered position count: {{ $store.state.renderPositionsCount }} </span>
     </div>
 
-    <Positions />
+    <positions-items />
   </div>
 </template>
 
 <script>
-import Filters from './Filters.vue';
-import Positions from './Positions.vue';
+import PositionsFilters from './PositionsFilters.vue';
+import PositionsItems from './PositionsItems.vue';
 
 export default {
   name: 'PositionsAndFilters',
   components: {
-    Filters,
-    Positions,
+    PositionsFilters,
+    PositionsItems,
   },
 };
 </script>

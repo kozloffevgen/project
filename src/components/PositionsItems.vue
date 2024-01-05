@@ -6,19 +6,24 @@
       class="positions__item"
     >
       <component
+        :is="item.template"
         v-for="item in $options.columns"
         :key="item.name"
-        :is="item.template"
         :href="item.name === 'Link' ? position[item.name] : null"
         :title="position[item.name]"
         class="positions__item-row"
       >
         <span class="positions__item-name">{{ item.name }}</span>
-        <span v-if="item.name !== 'Link'" class="positions__item-value">: {{ position[item.name] }}</span>
+        <span
+          v-if="item.name !== 'Link'"
+          class="positions__item-value"
+        > 
+          : {{ position[item.name] }}
+        </span>
       </component> 
     </div>
 
-    <VIntersectionObserver 
+    <v-intersection-observer 
       v-if="$store.getters.isShowObserver"
       @appear="$store.commit('addNextChunk')"
     />   
@@ -29,7 +34,7 @@
 import VIntersectionObserver from './common/VIntersectionObserver.vue';
 
 export default {
-  name: 'Positions',
+  name: 'PositionsItems',
   components: {
     VIntersectionObserver,
   },
