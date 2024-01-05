@@ -2,6 +2,7 @@
   <button
     class="v-button"
     :type="btnType"
+    @click="$emit('btnClick', $event)"
   >
     {{ value }}
   </button>

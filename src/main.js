@@ -4,9 +4,7 @@ import App from './App.vue';
 import storeData from './store';
 
 const app = createApp(App);
-const store = createStore({
-  ...storeData
-});
+const store = createStore(storeData);
 
 app
   .use(store)
