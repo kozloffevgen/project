@@ -1,9 +1,9 @@
 <template>
-  <div class="positions">
+  <div class="positions-items">
     <div
       v-for="position in $store.state.visiblePositions"
       :key="position.id"
-      class="positions__item"
+      class="positions-items__item"
     >
       <component
         :is="item.template"
@@ -11,12 +11,12 @@
         :key="item.name"
         :href="item.name === 'Link' ? position[item.name] : null"
         :title="position[item.name]"
-        class="positions__item-row"
+        class="positions-items__item-row"
       >
-        <span class="positions__item-name">{{ item.name }}</span>
+        <span class="positions-items__item-name">{{ item.name }}</span>
         <span
           v-if="item.name !== 'Link'"
-          class="positions__item-value"
+          class="positions-items__item-value"
         > 
           : {{ position[item.name] }}
         </span>
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.positions {
+.positions-items {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
@@ -92,6 +92,7 @@ export default {
   }
 
   &__item-row {
+    white-space: nowrap;
     overflow-x: hidden;
     text-overflow: ellipsis;
   }

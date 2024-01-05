@@ -1,5 +1,5 @@
 <template>
-  <div class="filters">
+  <div class="positions-filters">
     <v-select 
       v-for="(item, key) in $options.config"
       ref="select"
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.filters {
+.positions-filters {
   display: flex;
   justify-content: center;
   gap: 20px;
