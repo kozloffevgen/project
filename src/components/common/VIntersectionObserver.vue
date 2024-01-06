@@ -3,12 +3,11 @@
 </template>
 
 <script>
-
 export default {
   name: 'VIntersectionObserver',
   props: {
-    itemsSelector: { type: String , default: ''},
-    options: { type: Object, default: null }
+    itemsSelector: { type: String, default: '' },
+    options: { type: Object, default: null },
   },
   emits: ['appear'],
   mounted() {

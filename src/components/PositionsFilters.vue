@@ -1,14 +1,14 @@
 <template>
   <div class="positions-filters">
-    <v-select 
+    <v-select
       v-for="(item, key) in $options.config"
       ref="select"
       :key="key"
       :palceholder="item"
       :items="setCurrSelectItems(item)"
       size="bg"
-      @change="$store.commit('setFilters', ({ key: item, value: $event }))"
-      @remove-item="$store.commit('resetFilters', ({ key: item }))"
+      @change="$store.commit('setFilters', { key: item, value: $event })"
+      @remove-item="$store.commit('resetFilters', { key: item })"
     />
   </div>
 
@@ -30,11 +30,7 @@ import VSelect from './common/VSelect.vue';
 
 export default {
   name: 'PositionsFilters',
-  config: [
-    'HTTPS',
-    'Cors',
-    'Category',
-  ],
+  config: ['HTTPS', 'Cors', 'Category'],
   components: {
     VButton,
     VSelect,

@@ -1,9 +1,9 @@
-import ApiManager from "@/common/js/ApiManager";
+import ApiManager from '@/common/js/ApiManager';
 
-export default class Api {  
+export default class Api {
   constructor() {
     if (!this.manager) {
-      this.manager = new ApiManager()
+      this.manager = new ApiManager();
     }
   }
 

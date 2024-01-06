@@ -6,6 +6,4 @@ import storeData from './store';
 const app = createApp(App);
 const store = createStore(storeData);
 
-app
-  .use(store)
-  .mount('#app')
+app.use(store).mount('#app');
