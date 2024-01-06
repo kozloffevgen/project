@@ -17,16 +17,16 @@
         <span
           v-if="item.name !== 'Link'"
           class="positions-items__item-value"
-        > 
+        >
           : {{ position[item.name] }}
         </span>
-      </component> 
+      </component>
     </div>
 
-    <v-intersection-observer 
+    <v-intersection-observer
       v-if="$store.getters.isShowObserver"
       @appear="$store.commit('addNextChunk')"
-    />   
+    />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="positions-and-filters">
     <positions-filters :items="$store.state.entries" />
-    
+
     <div class="positions-and-filters__count-wrap">
       <span>Positions count: {{ $store.state.visiblePositionsCount }}</span>
       <span>Rendered position count: {{ $store.state.renderPositionsCount }} </span>

@@ -17,14 +17,14 @@ export default {
     let id = 0;
     state.entries.forEach((item) => {
       item.id = id;
-      id += 1; 
+      id += 1;
     });
   },
   setVisiblePositions(state) {
     state.visiblePositionsCount = state.count;
     state.renderPositionsCount = MAX_POSITIONS_CHUNK;
     state.positionsChunk = chunk(state.entries, MAX_POSITIONS_CHUNK);
-    [state.visiblePositions]  = state.positionsChunk;
+    [state.visiblePositions] = state.positionsChunk;
   },
   addNextChunk(state) {
     state.visiblePositions.push(...state.positionsChunk[state.nextChunkIndex]);
@@ -61,14 +61,14 @@ export default {
         }
       });
 
-      return acc
+      return acc;
     }, []);
-    
+
     state.visiblePositionsCount = filteredPositions.length;
     state.nextChunkIndex = 1;
     state.positionsChunk = chunk(filteredPositions, MAX_POSITIONS_CHUNK);
     [state.visiblePositions] = state.positionsChunk;
-    state.renderPositionsCount = state.visiblePositions ?  state.visiblePositions.length : 0;
+    state.renderPositionsCount = state.visiblePositions ? state.visiblePositions.length : 0;
   },
   resetFilters(state, item) {
     if (!state.filters.length) return;

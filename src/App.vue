@@ -1,7 +1,5 @@
 <template>
-  <h1 class="app-title">
-    Free Api List
-  </h1>
+  <h1 class="app-title">Free Api List</h1>
 
   <v-loader v-if="$store.state.isLoading" />
   <positions-and-filters v-else />

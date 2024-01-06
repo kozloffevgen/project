@@ -25,8 +25,8 @@
       <v-svg
         v-else
         class="v-select__svg"
-        :class="{'v-select__svg_open': isOpenSelectList}"
-        name="arrow-down" 
+        :class="{ 'v-select__svg_open': isOpenSelectList }"
+        name="arrow-down"
       />
     </div>
 
@@ -55,12 +55,12 @@ export default {
     VSvg,
   },
   props: {
-    size: { 
+    size: {
       type: String,
       default: 'sm',
       validator: (val) => ['sm', 'md', 'bg'].includes(val),
     },
-    palceholder: { type: String , default: ''},
+    palceholder: { type: String, default: '' },
     items: { type: Array, default: () => [] },
   },
   emits: ['change', 'remove-item'],
@@ -94,8 +94,8 @@ export default {
     removeActiveItem() {
       this.activeItem = null;
 
-      this.$emit('remove-item')
-    }
+      this.$emit('remove-item');
+    },
   },
 };
 </script>
@@ -161,7 +161,7 @@ export default {
     top: 14px;
     font-size: 16px;
     color: var(--color-text-placeholder);
-    transition: top .3s ease-out, background-color .5s ease-out;
+    transition: top 0.3s ease-out, background-color 0.5s ease-out;
   }
 
   &__selected-item {
@@ -171,7 +171,7 @@ export default {
   &__svg {
     position: absolute;
     inset-inline-end: 12px;
-    transition: transform .3s ease-out;
+    transition: transform 0.3s ease-out;
 
     &_open {
       transform: rotate(-180deg);

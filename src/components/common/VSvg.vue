@@ -48,7 +48,7 @@ export default {
     },
     className() {
       return {
-        'v-svg__type_button': this.button, 
+        'v-svg__type_button': this.button,
       };
     },
   },
@@ -56,15 +56,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .v-svg {
-    fill: currentColor;
-    width: v-bind(width);
-    height: v-bind(height);
+.v-svg {
+  fill: currentColor;
+  width: v-bind(width);
+  height: v-bind(height);
 
-    &__type {
-      &_button {
-        cursor: pointer;
-      }
+  &__type {
+    &_button {
+      cursor: pointer;
     }
   }
+}
 </style>

@@ -7,9 +7,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'VLoader',
-  };
+export default {
+  name: 'VLoader',
+};
 </script>
 
 <style lang="less" scoped>
@@ -28,7 +28,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    
+
     &_first {
       left: 0%;
       top: 0%;
